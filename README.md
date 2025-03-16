@@ -1,6 +1,7 @@
 # Terminus Decentralized Exchange
 [![TON](https://img.shields.io/badge/based%20on-TON-blue)](https://ton.org/)
 [![License](https://img.shields.io/badge/license-GPL--3.0-brightgreen)](https://opensource.org/licenses/GPL-3.0)
+The license for Terminus Decentralized Exchange is the GNU General Public License v3.0 (GPL-3.0), see [LICENSE](LICENSE).
 
 Core contracts for the Terminus DEX protocol.
 
@@ -162,7 +163,4 @@ const swapMsg = swap({
   refAddress: Address.parse("EQ...referral..."),
 });
 
-// Send `swapMsg` to the router contract via a TON client```
-
-## Licensing
-The license for Terminus Decentralized Exchange is the GNU General Public License v3.0 (GPL-3.0), see [LICENSE](LICENSE).
+// Send `swapMsg` to the router contract via a TON client
