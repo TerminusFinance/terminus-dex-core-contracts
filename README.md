@@ -162,7 +162,7 @@ const swapMsg = swap({
   refAddress: Address.parse("EQ...referral..."),
 });
 
-// Send `swapMsg` to the router contract via a TON client
+// Send `swapMsg` to the router contract via a TON client```
 
 ## Licensing
 The license for Terminus Decentralized Exchange is the GNU General Public License v3.0 (GPL-3.0), see [LICENSE](LICENSE).
