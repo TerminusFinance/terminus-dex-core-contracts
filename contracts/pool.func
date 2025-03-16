@@ -84,6 +84,7 @@
 
     if (storage::total_supply_lp == 0) { 
       ;; handle initial liquidity
+      throw_unless(ZERO_OUTPUT, (tot_am0 > 0) & (tot_am1 > 0));
       liquidity = sqrt(tot_am0 * tot_am1) / REQUIRED_MIN_LIQUIDITY;
       to = addr_none(); ;; Lock the initial liquidity, so it will be impossible to fully drain the pool.
     } else {
@@ -94,14 +95,10 @@
       to = user_address;
     }
 
-    storage::reserve0 += tot_am0;
-    storage::reserve1 += tot_am1;
-    storage::total_supply_lp += liquidity;
-
     ;; checks if
     ;; - the user will get less than the minimum amount of liquidity
     ;; - reserves exceeds max supply
-    if ((liquidity < min_lp_out) | ((storage::reserve0 > MAX_COINS) | (storage::reserve1 > MAX_COINS))) {      
+    if ((liquidity < min_lp_out) | (((storage::reserve0 + tot_am0) > MAX_COINS) | ((storage::reserve1 + tot_am1) > MAX_COINS))) {    
       var body = begin_cell()
         .store_uint(add_liquidity, 32)
         .store_uint(query_id, 64)
@@ -111,6 +108,10 @@
       ;; state_init needed since lp_account might be already destroyed
       send_message_with_stateinit(0, sender_address, acc_state_init, body.end_cell(), CARRY_REMAINING_GAS + IGNORE_ERRORS);
     } else {
+      ;; I would assume that's how it's supposed to work. We don't have to write the value when the transaction should be sent back to the user. Yes, it's a bit more computation, but I think this design will be correct
+      storage::reserve0 += tot_am0;
+      storage::reserve1 += tot_am1;
+      storage::total_supply_lp += liquidity;
       _mint_lp(query_id, to, liquidity);
       save_storage();
     }
