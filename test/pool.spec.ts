@@ -510,6 +510,6 @@ describe("pool tests", () => {
       })
     );
     const call2 = await contract.invokeGetMethod("get_jetton_data", []);
-    expect(parseUri(call2.result[3] as Cell)).to.be.equal("https://lp.terminus.finance/" + anotherAddress.toString().toUpperCase() + ".json");
+    expect(parseUri(call2.result[3] as Cell)).to.be.equal("https://lp.terminus.pw/" + anotherAddress.toString().toUpperCase() + ".json");
   });
 });

@@ -8,5 +8,5 @@ const TWODAYS = 172800; ;; 24 * 60 * 60 * 2
 const SEVENDAYS = 604800; ;; 24 * 60 * 60 * 7
 
 const HOLE_ADDRESS = "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c"a;
-const BASE_URI = "https://lp.terminus.finance/"u;
+const BASE_URI = "https://lp.terminus.pw/"u;
 (cell) empty_cell() asm "<b b> PUSHREF";

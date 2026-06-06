@@ -13,5 +13,5 @@ const MAX_FEE = 100; ;; 1%
 
 const HOLE_ADDRESS = "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c"a;
 slice addr_none() asm "<b b{00} s, b> <s PUSHSLICE";
-const URI_BASE = "https://lp.terminus.finance/0:";
+const URI_BASE = "https://lp.terminus.pw/0:";
 const URI_END = ".json";

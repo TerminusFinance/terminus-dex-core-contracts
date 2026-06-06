@@ -2,7 +2,7 @@
     "name": "@terminus/dex-core",
     "description": "Core contracts for the Terminus DEX protocol",
     "version": "1.0.0",
-    "homepage": "https://terminus.finance",
+    "homepage": "https://terminus.pw/",
     "license": "GPL-3.0",
     "keywords": [
         "dex",
